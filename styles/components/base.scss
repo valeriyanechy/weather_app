@@ -1,0 +1,59 @@
+* {
+    box-sizing: border-box;
+
+    &:before,
+    &:after {
+        box-sizing: border-box;
+    }
+}
+
+html, body {
+    height: 100%;
+}
+
+body {
+    background: $beige;
+    background-image: url('https://source.unsplash.com/1700x1000/?city');
+    margin: 0;
+    font: $main-font;
+    color: $text-color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:before,
+    &:after {
+        content: '';
+        height: 50vh;
+        width: 100%;
+        position: fixed;
+        left: 0;
+        z-index: 1;
+    }
+
+    &:before {
+        top: 0;
+        transform: translateY(-100%);
+    }
+    
+    &:after {
+        bottom: 0;
+        transform: translateY(100%);
+    }
+}
+
+ul, ol, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: $black;
+    transition: $trs;
+}

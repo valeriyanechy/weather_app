@@ -1,0 +1,235 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&display=swap");
+* {
+  box-sizing: border-box;
+}
+*:before, *:after {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background: #ccc;
+  background-image: url("https://source.unsplash.com/1700x1000/?city");
+  margin: 0;
+  font: 400 18px/1.6 "Montserrat", Arial, Helvetica, sans-serif;
+  color: rgba(255, 255, 255, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+body:before, body:after {
+  content: "";
+  height: 50vh;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  z-index: 1;
+}
+body:before {
+  top: 0;
+  transform: translateY(-100%);
+}
+body:after {
+  bottom: 0;
+  transform: translateY(100%);
+}
+
+ul, ol, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+h1, h2, h3, h4, h5, h6, p, span {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+  transition: all 0.3s;
+}
+
+.btn {
+  font-size: 25px;
+  margin: 5px;
+  border-radius: 5px 15px;
+  padding: 6px 20px;
+  border: 1.5px solid #fff;
+  color: #fff;
+  cursor: pointer;
+  background: transparent;
+  transition: all 0.3s;
+}
+.btn:hover {
+  background: #0b87c5;
+  color: #fff;
+  border-color: #0b87c5;
+}
+
+.card {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px;
+  margin: 20px;
+  border-radius: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+.card_search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.card_search-bar {
+  font: 500 20px/1.3 "Montserrat", Arial, Helvetica, sans-serif;
+  width: 100%;
+  margin: 10px 5px;
+  border-radius: 15px;
+  padding: 8px 20px;
+  border: 1.5px solid #fff;
+  color: #fff;
+  background: transparent;
+  transition: all 0.3s;
+}
+.card_weather {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.card_weather.loading {
+  visibility: hidden;
+  max-height: 30px;
+  position: relative;
+}
+.card_weather.loading::after {
+  visibility: visible;
+  position: absolute;
+  content: "Let me look outside for you... Enter a city";
+  color: #0b87c5;
+  top: 10%;
+  left: 15px;
+  font-size: 15px;
+}
+.card_weather-descr {
+  text-transform: uppercase;
+  margin: 10px;
+}
+.card_weather-bottom {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  border-top: 1px solid #ccc;
+}
+.card_weather-bottom-column {
+  display: flex;
+  width: 100%;
+  padding: 15px 0;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  z-index: 999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container_intro-title {
+  position: absolute;
+  color: #fff;
+  z-index: 9999;
+  top: 20%;
+}
+.container_intro-title p {
+  font-size: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container a {
+  transition: all 0.3s;
+  background: #ffcc2f;
+  cursor: pointer;
+  color: #ffcc2f;
+  position: absolute;
+}
+.container a:hover {
+  background-color: #fff;
+}
+.container_big-ball {
+  top: 47%;
+  left: 48%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #ffcc2f;
+  width: 70px;
+  height: 70px;
+  position: relative;
+  border-radius: 65%;
+  animation: liquid 3s linear infinite;
+}
+.container_big-ball svg {
+  z-index: 999;
+}
+.container_balls {
+  background: #ffcc2f;
+  left: 50%;
+  width: 30px;
+  height: 30px;
+  position: absolute;
+  offset-path: path("M-2.49942505,8.7874147 C4.52775317,12.2064524 11.3921407,12.2064524 18.0937376,8.7874147 C28.146133,3.65885811 28.146133,-13.3979429 8.82754694,-17.9879156 C-10.4910391,-22.5778882 -23.1457428,-19.0670628 -31.5386951,4.36625841 C-39.9316474,27.7995796 -4.28843555,68.6949409 34.7084759,54.8415689 C73.7053873,40.9881969 90.3354587,9.86754694 81.8459418,-36.8197532 C73.3564249,-83.5070534 -25.4258151,-91.9863164 -45.0869451,-71.6603795 C-64.7480751,-51.3344425 -95.1337028,-22.0408451 -79.8240139,24.4609705 C-64.514325,70.9627862 -3.46161515,89.4571273 18.0937376,79.2268121 C39.6490904,68.9964969 64.9148327,52.3802189 68.0046783,20.7433959 C71.0945238,-10.893427 52.1572528,-43.0936393 27.1808776,-43.0936393 C2.20450232,-43.0936393 -5.78309464,-35.2053491 -9.97812023,-17.9879156 C-12.774804,-6.50962663 -10.2819056,2.41548347 -2.49942505,8.7874147 Z");
+  animation: rotate 6s ease infinite, liquid 2s linear infinite;
+  border-radius: 65% 75% 80% 70%/45% 66% 70% 70%;
+}
+.container_balls:last-child {
+  width: 20px;
+  height: 20px;
+  offset-path: path("M-4.71123307,16.5352174 C8.50655454,22.956337 21.4181407,22.956337 34.0235253,16.5352174 C52.9316022,6.90353792 52.9316022,-25.1299665 16.5942619,-33.750159 C-19.7430785,-42.3703516 -43.5459736,-35.7768501 -59.3327172,8.23207018 C-75.1194608,52.2409904 -8.07627662,129.044474 65.2750568,103.027166 C138.62639,77.0098571 169.906763,18.5637584 153.938386,-69.1172687 C137.970008,-156.798296 -47.834681,-172.722766 -84.8163303,-134.549664 C-121.79798,-96.3765632 -178.951898,-41.3617583 -150.155103,45.9709198 C-121.358307,133.303598 -6.52106683,168.036873 34.0235253,148.823842 C74.5681174,129.610811 122.091776,98.4046301 127.903628,38.9891333 C133.71548,-20.4263634 98.0953753,-80.8999328 51.1160028,-80.8999328 C4.13663032,-80.8999328 -10.8876592,-66.085339 -18.7783026,-33.750159 C-24.0387315,-12.1933724 -19.3497083,4.56841969 -4.71123307,16.5352174 Z");
+}
+.container_intro-text {
+  position: absolute;
+  color: #fff;
+  z-index: 999;
+  top: 70%;
+}
+.container_intro-text svg {
+  margin: 0 10px;
+}
+
+@keyframes rotate {
+  to {
+    motion-offset: 100%;
+    offset-distance: 100%;
+  }
+}
+@keyframes liquid {
+  0% {
+    border-radius: 60% 70% 50% 60%/65% 66% 60% 65%;
+    transform: rotate(0deg);
+  }
+  25% {
+    border-radius: 80% 70% 80% 60%/60% 66% 60% 75%;
+    transform: rotate(90deg);
+  }
+  50% {
+    border-radius: 70% 60% 80% 60%/60% 66% 75% 60%;
+    transform: rotate(180deg);
+  }
+  75% {
+    border-radius: 65% 75% 80% 70%/45% 66% 70% 70%;
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

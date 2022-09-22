@@ -1,0 +1,17 @@
+.btn {
+    font-size: 25px;
+    margin: 5px;
+    border-radius: 5px 15px;
+    padding: 6px 20px;
+    border: 1.5px solid $white;
+    color: $white;
+    cursor: pointer;
+    background: transparent;
+    transition: $trs;
+
+    &:hover {
+        background: $blue;
+        color: $white;
+        border-color: $blue;
+    }
+}

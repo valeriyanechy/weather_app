@@ -1,0 +1,70 @@
+.card {
+    background: rgba(0, 0, 0, 0.8);
+    padding: 40px;
+    margin: 20px;
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+
+    &_search {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        &-bar {
+            font: $h2-font;
+            width: 100%;
+            margin: 10px 5px;
+            border-radius: 15px;
+            padding: 8px 20px;
+            border: 1.5px solid $white;
+            color: $white;
+            background: transparent;
+            transition: $trs;
+        }
+    }
+
+    &_weather {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &.loading {
+            visibility: hidden;
+            max-height: 30px;
+            position: relative;
+            
+            &::after {
+                visibility: visible;
+                position: absolute;
+                content: "Let me look outside for you... Enter a city";
+                color: $blue;
+                top: 10%;
+                left: 15px;
+                font-size: 15px;
+            }
+        }
+
+        &-descr {
+            text-transform: uppercase;
+            margin: 10px;
+        }
+
+        &-bottom {
+            display: flex;
+            width: 100%;
+            justify-content: space-between;
+            border-top: 1px solid $beige;
+
+            &-column {
+                display: flex;
+                width: 100%;
+                padding: 15px 0;
+                align-items: center;
+                justify-content: center;
+            }
+        }
+    }
+}
+
